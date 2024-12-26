@@ -1,22 +1,22 @@
 .. _Contribute:
 
 Contribute to Pingouin
-**********************
+######################
 
 There are many ways to contribute to Pingouin: reporting bugs or results that are inconsistent with other statistical softwares, adding new functions, improving the documentation, etc...
 
-If you like Pingouin, you can also consider `buying the developpers a coffee <https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=K2FZVJGCKYPAG&currency_code=USD&source=url>`_!
+If you like Pingouin, you can also consider `buying the developers a coffee <https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=K2FZVJGCKYPAG&currency_code=USD&source=url>`_!
 
 Code guidelines
 ---------------
 
 *Before starting new code*, we highly recommend opening an issue on `GitHub <https://github.com/raphaelvallat/pingouin>`_ to discuss potential changes.
 
-* Please use standard `pep8 <https://pypi.python.org/pypi/pep8>`_ and `flake8 <http://flake8.pycqa.org/>`_ Python style guidelines. To test that your code complies with those, you can run:
+* Please use standard `pep8 <https://pypi.python.org/pypi/pep8>`_ and `flake8 <http://flake8.pycqa.org/>`_ Python style guidelines. Pingouin uses `ruff <https://github.com/astral-sh/ruff>`_ for code formatting. Before submitting a PR, please make sure to run the following command in the root folder of Pingouin:
 
   .. code-block:: bash
 
-     $ flake8
+     $ ruff format --line-length=100
 
 * Use `NumPy style <https://numpydoc.readthedocs.io/en/latest/format.html>`_ for docstrings. Follow existing examples for simplest guidance.
 
@@ -45,11 +45,11 @@ All changes to the codebase must be properly documented. To ensure that document
 Build locally
 ^^^^^^^^^^^^^
 
-If you want to test the documentation locally, you will need to install the following packages:
+If you want to test the documentation locally, you will need to install additional dependencies. They can be installed with the docs extra:
 
 .. code-block:: bash
 
-  $ pip install --upgrade sphinx sphinx_bootstrap_theme numpydoc sphinx-copybutton
+  $ pip install --upgrade pingouin[docs]
 
 and then within the ``pingouin/docs`` directory do:
 
@@ -80,7 +80,7 @@ To inspect these build artifacts, follow these steps:
 
   Screenshot of the GitHub checks dropdown menu
 
-* Click on the check that starts with ``Python tests / build (ubuntu-latest, 3.8)``
+* Click on the check that starts with ``Python tests / build (ubuntu-latest, 3.9)``
 * Now in the top right corner of the opening window, you will see a small dropdown menu called "Artifacts"
 
 .. figure::  /pictures/github_build_artifacts.png

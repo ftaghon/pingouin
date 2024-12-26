@@ -5,8 +5,6 @@
 Functions
 #########
 
-.. contents:: Table of Contents
-   :depth: 2
 
 ANOVA and T-test
 ----------------
@@ -24,6 +22,7 @@ ANOVA and T-test
     welch_anova
     tost
     ttest
+    ptests
 
 Bayesian
 --------
@@ -125,6 +124,7 @@ Multiple comparisons and post-hoc tests
     pairwise_tests
     pairwise_tukey
     pairwise_gameshowell
+    ptests
     multicomp
 
 Multivariate tests

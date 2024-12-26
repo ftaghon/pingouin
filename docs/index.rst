@@ -27,7 +27,7 @@
 .. figure::  /pictures/logo_pingouin.png
   :align:   center
 
-**Pingouin** is an open-source statistical package written in Python 3 and based mostly on Pandas and NumPy. Some of its main features are listed below. For a full list of available functions, please refer to the `API documentation <https://pingouin-stats.org/api.html>`_.
+**Pingouin** is an open-source statistical package written in Python 3 and based mostly on Pandas and NumPy. Some of its main features are listed below. For a full list of available functions, please refer to the `API documentation <https://pingouin-stats.org/build/html/api.html#>`_.
 
 1. ANOVAs: N-ways, repeated measures, mixed, ancova
 
@@ -63,7 +63,7 @@ the :code:`ttest` function of Pingouin returns the T-value, the p-value, the deg
 Installation
 ============
 
-Pingouin is a Python 3 package and is currently tested for Python 3.7-3.9. It does not support Python 2.
+Pingouin is a Python 3 package and is currently tested for Python 3.8-3.11.
 
 The main dependencies of Pingouin are :
 
@@ -74,7 +74,6 @@ The main dependencies of Pingouin are :
 * `Statsmodels <https://www.statsmodels.org/>`_
 * `Matplotlib <https://matplotlib.org/>`_
 * `Seaborn <https://seaborn.pydata.org/>`_
-* `Outdated <https://github.com/alexmojaki/outdated>`_
 
 In addition, some functions require :
 
@@ -93,7 +92,7 @@ or conda
 
   conda install -c conda-forge pingouin
 
-Pingouin is under heavy development and it is likely that bugs/mistakes will be discovered in future releases. Please always make sure that you are using the latest version of Pingouin (new releases are `frequent <https://pingouin-stats.org/changelog.html>`_).
+Pingouin is under heavy development and it is likely that bugs/mistakes will be discovered in future releases. Please always make sure that you are using the latest version of Pingouin (new releases are `frequent <https://pingouin-stats.org/build/html/changelog.html>`_).
 Whenever a new release is out there, you can upgrade your version by typing the following line in a terminal window:
 
 .. code-block:: shell
@@ -136,7 +135,7 @@ Quick start
    :widths: auto
 
    ======  =====  =============  =======  =============  =========  ======  =======
-        T    dof  alternative      p-val  CI95%            cohen-d    BF10    power
+        T    dof  alternative      p_val  CI95             cohen_d    BF10    power
    ======  =====  =============  =======  =============  =========  ======  =======
    -3.401     58  two-sided        0.001  [-1.68 -0.43]      0.878  26.155    0.917
    ======  =====  =============  =======  =============  =========  ======  =======
@@ -154,7 +153,7 @@ Quick start
    :widths: auto
 
    ===  =====  ===========  =======  ======  =======
-     n      r  CI95%          p-val    BF10    power
+     n      r  CI95           p_val    BF10    power
    ===  =====  ===========  =======  ======  =======
     30  0.595  [0.3  0.79]    0.001  69.723    0.950
    ===  =====  ===========  =======  ======  =======
@@ -175,7 +174,7 @@ Quick start
    :widths: auto
 
    ===  =====  ===========  =======  =======
-     n      r  CI95%          p-val    power
+     n      r  CI95           p_val    power
    ===  =====  ===========  =======  =======
     30  0.576  [0.27 0.78]    0.001    0.933
    ===  =====  ===========  =======  =======
@@ -236,7 +235,7 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ========  =======  ====  =====  =======  =======  =======
-  Source         SS    DF     MS        F    p-unc      np2
+  Source         SS    DF     MS        F    p_unc      np2
   ========  =======  ====  =====  =======  =======  =======
   Group       5.460     1  5.460    5.244    0.023    0.029
   Within    185.343   178  1.041      nan      nan      nan
@@ -255,7 +254,7 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ========  =======  ====  =====  =======  =======  =======  =======
-  Source         SS    DF     MS        F    p-unc      ng2      eps
+  Source         SS    DF     MS        F    p_unc      ng2      eps
   ========  =======  ====  =====  =======  =======  =======  =======
   Time        7.628     2  3.814    3.913    0.023     0.04    0.999
   Error     115.027   118  0.975      nan      nan      nan      nan
@@ -279,7 +278,7 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ==========  =======  =======  ========  ============  ======  ======  =============  =======  ========  ==========  ======  ========
-  Contrast    A        B        Paired    Parametric         T     dof  alternative      p-unc    p-corr  p-adjust      BF10    hedges
+  Contrast    A        B        Paired    Parametric         T     dof  alternative      p_unc    p_corr  p_adjust      BF10    hedges
   ==========  =======  =======  ========  ============  ======  ======  =============  =======  ========  ==========  ======  ========
   Time        August   January  True      True          -1.740  59.000  two-sided        0.087     0.131  fdr_bh       0.582    -0.328
   Time        August   June     True      True          -2.743  59.000  two-sided        0.008     0.024  fdr_bh       4.232    -0.483
@@ -302,7 +301,7 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ===========  =====  =====  =====  =====  =====  =======  =====  =======
-  Source          SS    DF1    DF2     MS      F    p-unc    np2      eps
+  Source          SS    DF1    DF2     MS      F    p_unc    np2      eps
   ===========  =====  =====  =====  =====  =====  =======  =====  =======
   Group        5.460      1     58  5.460  5.052    0.028  0.080      nan
   Time         7.628      2    116  3.814  4.027    0.020  0.065    0.999
@@ -326,24 +325,34 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ===  ===  ========  =============  ===  =====  =============  =======  ======  =======
-  X    Y    method    alternative      n      r  CI95%            p-unc    BF10    power
+  X    Y    method    alternative      n      r  CI95             p_unc    BF10    power
   ===  ===  ========  =============  ===  =====  =============  =======  ======  =======
   X    Y    pearson   two-sided       30  0.366  [0.01 0.64]      0.047   1.500    0.525
   X    Z    pearson   two-sided       30  0.251  [-0.12  0.56]    0.181   0.534    0.272
   Y    Z    pearson   two-sided       30  0.020  [-0.34  0.38]    0.916   0.228    0.051
   ===  ===  ========  =============  ===  =====  =============  =======  ======  =======
 
-11.  Convert between effect sizes
-#################################
+------------
+
+11.  Pairwise T-test between columns of a dataframe
+###################################################
 
 .. code-block:: python
 
-    # Convert from Cohen's d to Hedges' g
-    pg.convert_effsize(0.4, 'cohen', 'hedges', nx=10, ny=12)
+    data.ptests(paired=True, stars=False)
 
-.. parsed-literal::
+.. table:: Pairwise T-tests, with T-values on the lower triangle and p-values on the upper triangle
+  :widths: auto
 
-    0.384
+  ====  ======  ======  =====
+  ..    X       Y       Z
+  ====  ======  ======  =====
+  X     -       0.226   0.165
+  Y     -1.238  -       0.658
+  Z     -1.424  -0.447  -
+  ====  ======  ======  =====
+
+------------
 
 12. Multiple linear regression
 ##############################
@@ -356,12 +365,14 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   =========  ======  =====  ======  ======  =====  ========  ==========  ===========
-  names        coef     se       T    pval     r2    adj_r2    CI[2.5%]    CI[97.5%]
+  names        coef     se       T    pval     r2    adj_r2       CI2.5       CI97.5
   =========  ======  =====  ======  ======  =====  ========  ==========  ===========
   Intercept   4.650  0.841   5.530   0.000  0.139     0.076       2.925        6.376
   X           0.143  0.068   2.089   0.046  0.139     0.076       0.003        0.283
   Z          -0.069  0.167  -0.416   0.681  0.139     0.076      -0.412        0.273
   =========  ======  =====  ======  ======  =====  ========  ==========  ===========
+
+------------
 
 13. Mediation analysis
 ######################
@@ -374,7 +385,7 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   :widths: auto
 
   ========  ======  =====  ======  ==========  ===========  =====
-  path        coef     se    pval    CI[2.5%]    CI[97.5%]  sig
+  path        coef     se    pval       CI2.5       CI97.5  sig
   ========  ======  =====  ======  ==========  ===========  =====
   Z ~ X      0.103  0.075   0.181      -0.051        0.256  No
   Y ~ Z      0.018  0.171   0.916      -0.332        0.369  No
@@ -382,6 +393,8 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   Direct     0.143  0.068   0.046       0.003        0.283  Yes
   Indirect  -0.007  0.025   0.898      -0.069        0.029  No
   ========  ======  =====  ======  ==========  ===========  =====
+
+------------
 
 14. Contingency analysis
 ########################
@@ -406,6 +419,8 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
   neyman                -2.000  27.458  1.000  0.000     0.301    0.999
   ==================  ========  ======  =====  =====  ========  =======
 
+------------
+
 15. Bland-Altman plot
 #####################
 
@@ -417,6 +432,8 @@ The :py:func:`pingouin.normality` function works with lists, arrays, or pandas D
     mean, cov = [10, 11], [[1, 0.8], [0.8, 1]]
     x, y = np.random.multivariate_normal(mean, cov, 30).T
     ax = pg.plot_blandaltman(x, y)
+
+------------
 
 16. Plot achieved power of a paired T-test
 ##########################################
@@ -442,6 +459,8 @@ Plot the curve of achieved power given the effect size (Cohen d) and the sample 
     plt.title('Achieved power of a paired T-test')
     sns.despine()
 
+------------
+
 17.  Paired plot
 ################
 
@@ -450,7 +469,7 @@ Plot the curve of achieved power given the effect size (Cohen d) and the sample 
     import pingouin as pg
     import numpy as np
     df = pg.read_dataset('mixed_anova').query("Group == 'Meditation' and Time != 'January'")
-    ax = pg.plot_paired(data=df, dv='Scores', within='Time', subject='Subject', dpi=150)
+    ax = pg.plot_paired(data=df, dv='Scores', within='Time', subject='Subject')
     ax.set_title("Effect of meditation on school performance")
 
 Integration with Pandas
@@ -486,6 +505,7 @@ The functions that are currently supported as pandas method are:
 * :py:func:`pingouin.partial_corr`
 * :py:func:`pingouin.pcorr`
 * :py:func:`pingouin.rcorr`
+* :py:func:`pingouin.ptests`
 * :py:func:`pingouin.mediation_analysis`
 
 
@@ -509,13 +529,6 @@ This program is provided with NO WARRANTY OF ANY KIND. Pingouin is still under h
 - `Johannes Elfner <https://www.linkedin.com/in/johannes-elfner/>`_
 - `Stefan Appelhoff <https://stefanappelhoff.com>`_
 
-How to cite Pingouin?
-=====================
-
-If you want to cite Pingouin, please use the publication in JOSS:
-
-* Vallat, R. (2018). Pingouin: statistics in Python. *Journal of Open Source Software*, 3(31), 1026, `https://doi.org/10.21105/joss.01026 <https://doi.org/10.21105/joss.01026>`_
-
 Acknowledgement
 ===============
 
@@ -528,3 +541,15 @@ Several functions of Pingouin were inspired from R or Matlab toolboxes, includin
 - `robust correlations (Matlab) <https://sourceforge.net/projects/robustcorrtool/>`_
 - `repeated-measure correlation (R) <https://cran.r-project.org/web/packages/rmcorr/index.html>`_
 - `real-statistics.com <https://www.real-statistics.com/>`_
+
+
+.. toctree::
+  :maxdepth: 1
+  :hidden:
+
+  Functions <api>
+  Guidelines <guidelines>
+  FAQ <faq> 
+  Changelog <changelog>
+  Contribute <contributing>
+  Cite <citing>
